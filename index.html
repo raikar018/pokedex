@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Pokedex by Ganapathy Raiker </title>
+    <link href="./styles/range-slider.css" rel="stylesheet" />
+    <link href="./styles/custom.css" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- pre loader -->
+        <div class="pokemon-pre-loader d-none" id="pokemon-pre-loader">
+            <p> Please wait ... </p>
+        </div>
+    <!-- pre loader -->
+
+    <!-- mobile filter (phablet, mobile)-->
+    
+    <div class="overlay pokemon-mobile-filter d-none" id="pokemon-mobile-filter">
+        <div class="pokemon-mobile-filter-modal-container">
+            <div class="header">
+                <h1> Filters </h1>
+                <button type="button" class="close pokemon-mobile-filter-close"></button>
+            </div>
+
+            <div class="filter-fields">
+                <div class="filter-item type">
+                    <div class="filter-item-selection-display open">
+                        <div class="filter-item-variant">
+                            <p> Type </p>
+                        </div>
+                        <div class="filter-item-value">
+                            (<span class="regular-display"> Select </span>
+                            <span class="bold-display"> </span>)
+                        </div>
+                        <div class="filter-item-cta">
+                            <button type="button" class="close pokemon-mobile-filter-drawer" aria-expanded="false"> </button>
+                        </div>
+                    </div>
+                    <div class="options" id="typeFilterMobile">
+                        <ul>
+                            <li class="checkbox-item">
+                                <label class="custom-checkbox-container pokemon-type-check">Normal
+                                    <input type="checkbox" class="type-filter" value="Normal" />
+                                    <span class="checkmark"></span>
+                                </label>
+                            </li>
+                            <li class="checkbox-item">
+                                <label class="custom-checkbox-container pokemon-type-check">Fighting
+                                    <input type="checkbox" class="type-filter" value="Fighting" />
+                                    <span class="checkmark"></span>
+                                </label>
+                            </li>
+                            <li class="checkbox-item">
+                                <label class="custom-checkbox-container pokemon-type-check">Flying
+                                    <input type="checkbox" class="type-filter" value="Flying" />
+                                    <span class="checkmark"></span>
+                                </label>
+                            </li>
+                            <li class="checkbox-item">
+                                <label class="custom-checkbox-container pokemon-type-check">Poison
+                                    <input type="checkbox" class="type-filter" value="Poison" />
+                                    <span class="checkmark"></span>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="filter-item type">
+                    <div class="filter-item-selection-display open">
+                        <div class="filter-item-variant">
+                            <p> Gender </p>
+                        </div>
+                        <div class="filter-item-value">
+                            (<span class="regular-display"> Select </span>
+                            <span class="bold-display"> </span>)
+                        </div>
+                        <div class="filter-item-cta">
+                            <button type="button" class="close pokemon-mobile-filter-drawer" aria-expanded="false"> </button>
+                        </div>
+                    </div>
+                    <div class="options" id="genderFilterMobile">
+                        <ul>
+                            <li class="checkbox-item">
+                                <label class="custom-checkbox-container pokemon-gender-check">male
+                                    <input type="checkbox" class="gender-filter" value="male" />
+                                    <span class="checkmark"></span>
+                                </label>
+                            </li>
+                            <li class="checkbox-item">
+                                <label class="custom-checkbox-container pokemon-gender-check">female
+                                    <input type="checkbox" class="gender-filter" value="female" />
+                                    <span class="checkmark"></span>
+                                </label>
+                            </li>
+                            <li class="checkbox-item">
+                                <label class="custom-checkbox-container pokemon-gender-check">genderless
+                                    <input type="checkbox" class="gender-filter" value="genderless" />
+                                    <span class="checkmark"></span>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="filter-item type">
+                    <div class="filter-item-selection-display open">
+                        <div class="filter-item-variant">
+                            <p> Stats <span class="inactive-field"> (inactive)</span> </p>
+                        </div>
+                        <div class="filter-item-value">
+                            (<span class="regular-display"> Select </span>
+                            <span class="bold-display"> </span>)
+                        </div>
+                        <div class="filter-item-cta">
+                            <button type="button" class="close pokemon-mobile-filter-drawer" id="statsDropdownMenuMobile" data-sliderinstance=".pokemon-stats-range-slider-mobile" aria-expanded="false"> </button>
+                        </div>
+                    </div>
+                    <div class="options">
+                        <div class="stats-sliders">
+                            <label> HP </label>
+                            <div class="stats-sliders-selection-wrapper">
+                                <div class="stats-sliders-selection"> 
+                                    <input type="text" class="pokemon-stats-range-slider-mobile" data-statsfilter="hp" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="stats-sliders">
+                            <label> Attack </label>
+                            <div class="stats-sliders-selection-wrapper">
+                                <div class="stats-sliders-selection"> 
+                                    <input type="text" class="pokemon-stats-range-slider-mobile" data-statsfilter="attack" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="stats-sliders">
+                            <label> Defense </label>
+                            <div class="stats-sliders-selection-wrapper">
+                                <div class="stats-sliders-selection"> 
+                                    <input type="text" class="pokemon-stats-range-slider-mobile" data-statsfilter="defence" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="stats-sliders">
+                            <label> Speed </label>
+                            <div class="stats-sliders-selection-wrapper">
+                                <div class="stats-sliders-selection"> 
+                                    <input type="text" class="pokemon-stats-range-slider-mobile" data-statsfilter="speed" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="stats-sliders">
+                            <label> Sp. Attack </label>
+                            <div class="stats-sliders-selection-wrapper">
+                                <div class="stats-sliders-selection"> 
+                                    <input type="text" class="pokemon-stats-range-slider-mobile" data-statsfilter="special-attack" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="stats-sliders">
+                            <label> Sp. Def. </label>
+                            <div class="stats-sliders-selection-wrapper">
+                                <div class="stats-sliders-selection"> 
+                                    <input type="text" class="pokemon-stats-range-slider-mobile" data-statsfilter="special-defence" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="filter-item-form-cta">
+                <button type="button" class="reset" disabled> Reset </button>
+                <button type="button" class="apply" disabled> Apply </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- mobile filter -->
+
+    <!-- portal header (desktop, tablet, mobile) -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="#"> Pokédex </a>
+            </div>
+            <div class="title">
+                <p> Search for any Pokémon that exists on the planet </p>
+            </div>
+        </div>
+    </header>
+    <!-- portal header -->
+    
+
+    <!-- portal contents -->
+    <main>
+        <div class="container">
+
+            <!-- navigation / filters (destop, tablet) -->
+            <nav class="navigation">
+                <div class="filter-item search">
+                    <label for="searchByName">Search By</label>
+                    <input type="text" id="searchByName" name="searchByName" placeholder="Name or Number">
+                </div>
+                <div class="filter-item type">
+                    <label for="searchByType">Type</label>
+                    <div class="drop-down">
+                        <button class="display" type="button" aria-expanded="false">
+                            <p>
+                                <span class="regular-display"> - Select - </span>
+                                <span class="bold-display"></span>
+                            </p>
+                        </button>
+                        <div class="options" id="typeFilter">
+                            <ul>
+                                <li class="checkbox-item">
+                                    <label class="custom-checkbox-container pokemon-type-check">Normal
+                                        <input type="checkbox" class="type-filter" value="Normal" />
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </li>
+                                <li class="checkbox-item">
+                                    <label class="custom-checkbox-container pokemon-type-check">Fighting
+                                        <input type="checkbox" class="type-filter" value="Fighting" />
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </li>
+                                <li class="checkbox-item">
+                                    <label class="custom-checkbox-container pokemon-type-check">Flying
+                                        <input type="checkbox" class="type-filter" value="Flying" />
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </li>
+                                <li class="checkbox-item">
+                                    <label class="custom-checkbox-container pokemon-type-check">Poison
+                                        <input type="checkbox" class="type-filter" value="Poison" />
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="filter-item gender">
+                    <label>Gender</label>
+                    <div class="drop-down">
+                        <button class="display" type="button" aria-expanded="false">
+                            <p>
+                                <span class="regular-display"> - Select - </span>
+                                <span class="bold-display"></span>
+                            </p>
+                        </button>
+                        <div class="options" id="genderFilter">
+                            <ul>
+                                <li class="checkbox-item">
+                                    <label class="custom-checkbox-container pokemon-gender-check">male
+                                        <input type="checkbox" class="gender-filter" value="male" />
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </li>
+                                <li class="checkbox-item">
+                                    <label class="custom-checkbox-container pokemon-gender-check">female
+                                        <input type="checkbox" class="gender-filter" value="female" />
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </li>
+                                <li class="checkbox-item">
+                                    <label class="custom-checkbox-container pokemon-gender-check">genderless
+                                        <input type="checkbox" class="gender-filter" value="genderless" />
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="filter-item stats">
+                    <label>Stats <span class="inactive-field"> (inactive)</span> </label>
+                    <div class="drop-down">
+                        <button class="display" type="button" id="statsDropdownMenu" data-sliderinstance=".pokemon-stats-range-slider" aria-expanded="false">
+                            <p>
+                                <span class="regular-display"> - Select - </span>
+                                <span class="bold-display"></span>
+                            </p>
+                        </button>
+                        
+                        <div class="options range-selector-wrapper" id="statsFilter">
+                            <div class="range-selector-wrapper-header">
+                                <h2> Select Stats </h2>
+                                <button type="button" class="close"></button>
+                            </div>
+                            <div class="stats-sliders">
+                                <label> HP </label>
+                                <div class="stats-sliders-selection-wrapper">
+                                    <div class="stats-sliders-selection"> 
+                                        <input type="text" class="pokemon-stats-range-slider" data-statsfilter="hp" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="stats-sliders">
+                                <label> Attack </label>
+                                <div class="stats-sliders-selection-wrapper">
+                                    <div class="stats-sliders-selection"> 
+                                        <input type="text" class="pokemon-stats-range-slider" data-statsfilter="attack" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="stats-sliders">
+                                <label> Defense </label>
+                                <div class="stats-sliders-selection-wrapper">
+                                    <div class="stats-sliders-selection"> 
+                                        <input type="text" class="pokemon-stats-range-slider" data-statsfilter="defence" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="stats-sliders">
+                                <label> Speed </label>
+                                <div class="stats-sliders-selection-wrapper">
+                                    <div class="stats-sliders-selection"> 
+                                        <input type="text" class="pokemon-stats-range-slider" data-statsfilter="speed" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="stats-sliders">
+                                <label> Sp. Attack </label>
+                                <div class="stats-sliders-selection-wrapper">
+                                    <div class="stats-sliders-selection"> 
+                                        <input type="text" class="pokemon-stats-range-slider" data-statsfilter="special-attack" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="stats-sliders">
+                                <label> Sp. Def. </label>
+                                <div class="stats-sliders-selection-wrapper">
+                                    <div class="stats-sliders-selection"> 
+                                        <input type="text" class="pokemon-stats-range-slider" data-statsfilter="special-defence" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="stats-sliders stats-sliders-buttons">
+                                <button type="button" class="reset" disabled> Reset </button>
+                                <button type="button" class="apply" disabled> Apply </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="filter-cta">
+                    <button type="button" class="mobile-filter-switch"> </button>
+                </div>
+            </nav>
+            <!-- navigation / filters (destop, tablet) -->
+        
+            <!-- pokemon listing (destop, tablet, mobile) -->
+            <section class="pokemon-display">
+                <div class="pokemon-grid-wrapper" id="pokemons"> </div>
+            </section>
+            <!-- pokemon listing (destop, tablet, mobile) -->
+            <button type="button" id="scroll-to-top"> &#8593; </button>
+        </div>
+    </main>
+    <!-- portal contents -->
+    <div id="modal-placeholder"></div>
+</body>
+
+<script type="text/javascript" src="https://unpkg.com/default-passive-events"></script>
+<script src="./js/range-slider.js"></script>
+<script src="./js/custom.js"></script>
+</html>
