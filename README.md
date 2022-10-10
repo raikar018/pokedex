@@ -14,3 +14,5 @@ Know observations / future enhancements:
   - the drawers and menus may not work if one would access mobile UI at desktop machine. Eg: Viewing, acting on webapp by manually resizing browser etc, as
   specific portions of js scripts gets registered on load, for respective platforms mobile / desktop.
   - partial a11y support.
+
+View webapp at: https://unique-cobbler-122f75.netlify.app
