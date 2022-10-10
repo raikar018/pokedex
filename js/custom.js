@@ -272,7 +272,6 @@
                         //                 item.instance.destroy();
                         //             }
                         //         }
-                        //         console.log('reset');
                         //     };
                         //     _selfObjectReference.elementsHavingEventListenersRegistered.push({
                         //         element: isResetCTA,
@@ -578,7 +577,7 @@
                     _selfObjectReference.genderPerPokemonSpecies[response.name] = response.pokemon_species_details.map((o) => o.pokemon_species.name)
                 })
                 .catch((error) => {
-                    console.log(error);
+                    // handle the error
                 });
         }
         _selfObjectReference.storeInLocalSession('allGenderClassification', JSON.stringify(_selfObjectReference.genderPerPokemonSpecies));
@@ -973,8 +972,6 @@
             }));
             _selfObjectReference.pokemonSolo.weakAgainst = [..._selfObjectReference.pokemonSolo.weakAgainst, ...tailoredTypeWeaknessCollection];
         }
-
-        console.log(_selfObjectReference.pokemonSolo.weakAgainst);
 
         // fetch evolution chain
         await fetch(evolutionChainUrl)
